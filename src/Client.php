@@ -6,6 +6,7 @@ namespace Jira;
 
 use Jira\Contracts\Transporter;
 use Jira\Resources\Attachments;
+use Jira\Resources\Board;
 use Jira\Resources\Customers;
 use Jira\Resources\Groups;
 use Jira\Resources\Issues;
@@ -22,6 +23,11 @@ class Client
     public function attachments(): Attachments
     {
         return new Attachments(transporter: $this->transporter);
+    }
+
+    public function board(): Board
+    {
+        return new Board(transporter: $this->transporter);
     }
 
     public function customers(): Customers
