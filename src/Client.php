@@ -10,6 +10,7 @@ use Jira\Resources\Board;
 use Jira\Resources\Customers;
 use Jira\Resources\Groups;
 use Jira\Resources\Issues;
+use Jira\Resources\Project;
 use Jira\Resources\Requests;
 use Jira\Resources\Users;
 
@@ -43,6 +44,11 @@ class Client
     public function issues(): Issues
     {
         return new Issues(transporter: $this->transporter);
+    }
+
+    public function project(): Project
+    {
+        return new Project(transporter: $this->transporter);
     }
 
     public function requests(): Requests
