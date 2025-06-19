@@ -8,6 +8,7 @@ use Jira\Contracts\Transporter;
 use Jira\Resources\Attachments;
 use Jira\Resources\Board;
 use Jira\Resources\Customers;
+use Jira\Resources\Filter;
 use Jira\Resources\Groups;
 use Jira\Resources\Issues;
 use Jira\Resources\Project;
@@ -34,6 +35,11 @@ class Client
     public function customers(): Customers
     {
         return new Customers(transporter: $this->transporter);
+    }
+
+    public function filter(): Filter
+    {
+        return new Filter(transporter: $this->transporter);
     }
 
     public function groups(): Groups
