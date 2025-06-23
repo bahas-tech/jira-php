@@ -109,4 +109,27 @@ class Users
         // @phpstan-ignore-next-line
         return $this->transporter->request(payload: $payload);
     }
+
+    /**
+     * Return a user.
+     *
+     * @see https://docs.atlassian.com/software/jira/docs/api/REST/8.0.0/#api/2/user-getUser
+     *
+     * @param  non-empty-array<array-key, mixed>  $query
+     * @return non-empty-array<array-key, mixed>
+     *
+     * @throws \Jira\Exceptions\ErrorException
+     * @throws \Jira\Exceptions\TransporterException
+     * @throws \Jira\Exceptions\UnserializableResponse
+     * @throws \JsonException
+     */
+    public function me(): array
+    {
+        $payload = Payload::create(
+            uri: 'api/3/myself',
+        );
+
+        // @phpstan-ignore-next-line
+        return $this->transporter->request(payload: $payload);
+    }
 }

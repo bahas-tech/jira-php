@@ -87,4 +87,26 @@ class Project
         // @phpstan-ignore-next-line
         return $this->transporter->request(payload: $payload);
     }
+
+    public function getRoles(int|string $id)
+    {
+        $payload = Payload::create(
+            uri: "api/2/project/$id/role",
+        );
+
+        // @phpstan-ignore-next-line
+        return $this->transporter->request(payload: $payload);
+    }
+
+    public function addDeveloperToProject(int|string $id, array $body)
+    {
+        $payload = Payload::create(
+            uri: "api/2/project/$id/role/10802",
+            method: Method::POST,
+            body: $body,
+        );
+
+        // @phpstan-ignore-next-line
+        return $this->transporter->request(payload: $payload);
+    }
 }
